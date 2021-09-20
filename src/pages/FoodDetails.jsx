@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
-import Carousel from 'react-elastic-carousel';
+// import Carousel from 'react-elastic-carousel';
 import copy from 'clipboard-copy';
 import Button from '@material-ui/core/Button';
 import shareIcon from '../images/shareIcon.svg';
@@ -37,26 +37,26 @@ function FoodDetails({ match: { params: { id } } }) {
     setRecomendedDrink(response.drinks);
   };
 
-  const renderRecomendedDrink = () => {
-    const SEIS = 6;
-    const sliceRecomended = recomendedDrink.slice(0, SEIS);
-    if (sliceRecomended.length > 0) {
-      return (
-        <Carousel data-testid="recomendation-card" itemsToShow={ 2 } itemsToScroll={ 2 }>
-          {sliceRecomended.map((drink, index) => (
-            <Link key={ drink.idDrink } to={ `/comidas/${drink.idDrink}` }>
-              <RecomendedCard
-                title={ drink.strDrink }
-                id={ drink.idDrink }
-                index={ index }
-                img={ drink.strDrinkThumb }
-              />
-            </Link>
-          ))}
-        </Carousel>
-      );
-    }
-  };
+  // const renderRecomendedDrink = () => {
+  //   const SEIS = 6;
+  //   const sliceRecomended = recomendedDrink.slice(0, SEIS);
+  //   if (sliceRecomended.length > 0) {
+  //     return (
+  //       <Carousel data-testid="recomendation-card" itemsToShow={ 2 } itemsToScroll={ 2 }>
+  //         {sliceRecomended.map((drink, index) => (
+  //           <Link key={ drink.idDrink } to={ `/comidas/${drink.idDrink}` }>
+  //             <RecomendedCard
+  //               title={ drink.strDrink }
+  //               id={ drink.idDrink }
+  //               index={ index }
+  //               img={ drink.strDrinkThumb }
+  //             />
+  //           </Link>
+  //         ))}
+  //       </Carousel>
+  //     );
+  //   }
+  // };
 
   useEffect(() => {
     const fetchFoodById = async () => {
@@ -211,7 +211,7 @@ function FoodDetails({ match: { params: { id } } }) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         />}
         <h3>Drinks recomendados</h3>
-        {renderRecomendedDrink()}
+        {/* {renderRecomendedDrink()} */}
         <Link to={ `/comidas/${id}/in-progress` }>
           <button
             className="recipe-btn"

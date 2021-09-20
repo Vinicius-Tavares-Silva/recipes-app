@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, Link } from 'react-router-dom';
-import Carousel from 'react-elastic-carousel';
+// import Carousel from 'react-elastic-carousel';
 import copy from 'clipboard-copy';
 import Button from '@material-ui/core/Button';
 import shareIcon from '../images/shareIcon.svg';
-import RecomendedCard from '../components/RecomendedCard';
+// import RecomendedCard from '../components/RecomendedCard';
 import bHIcon from '../images/blackHeartIcon.svg';
 import wHIcon from '../images/whiteHeartIcon.svg';
 import '../styles/Details.css';
@@ -30,26 +30,26 @@ function DrinkDetails({ match: { params: { id } } }) {
     setRecomendedFood(response.meals);
   };
 
-  const renderRecomendedFood = () => {
-    const SEIS = 6;
-    const sliceRecomended = recomendedFood.slice(0, SEIS);
-    if (sliceRecomended.length > 0) {
-      return (
-        <Carousel data-testid="recomendation-card" itemsToShow={ 2 } itemsToScroll={ 2 }>
-          {sliceRecomended.map((meal, index) => (
-            <Link key={ meal.idMeal } to={ `/comidas/${meal.idMeal}` }>
-              <RecomendedCard
-                title={ meal.strMeal }
-                id={ meal.idMeal }
-                index={ index }
-                img={ meal.strMealThumb }
-              />
-            </Link>
-          ))}
-        </Carousel>
-      );
-    }
-  };
+  // const renderRecomendedFood = () => {
+  //   const SEIS = 6;
+  //   const sliceRecomended = recomendedFood.slice(0, SEIS);
+  //   if (sliceRecomended.length > 0) {
+  //     return (
+  //       <Carousel data-testid="recomendation-card" itemsToShow={ 2 } itemsToScroll={ 2 }>
+  //         {sliceRecomended.map((meal, index) => (
+  //           <Link key={ meal.idMeal } to={ `/comidas/${meal.idMeal}` }>
+  //             <RecomendedCard
+  //               title={ meal.strMeal }
+  //               id={ meal.idMeal }
+  //               index={ index }
+  //               img={ meal.strMealThumb }
+  //             />
+  //           </Link>
+  //         ))}
+  //       </Carousel>
+  //     );
+  //   }
+  // };
 
   useEffect(() => {
     const fetchDrinkById = async () => {
@@ -203,7 +203,7 @@ function DrinkDetails({ match: { params: { id } } }) {
         </ul>
         <p data-testid="instructions">{ strInstructions }</p>
         <h3>Comidas recomendadas</h3>
-        {renderRecomendedFood()}
+        {/* {renderRecomendedFood()} */}
         <Link to={ `/bebidas/${id}/in-progress` }>
           <button
             className="recipe-btn"
